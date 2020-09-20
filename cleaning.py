@@ -5,6 +5,7 @@ from pandas.io.json import json_normalize
 
 df = pd.read_json('https://raw.githubusercontent.com/theand9/data-viz-challenge/master/data.json')
 data = json_normalize(df['data'])
+# can even be done using dataframe
 data.drop(['location.latitude','location.longitude','location.state','location.zip_code','device'],1, inplace=True)
 #data.head()
 data1 = data[data['category'].isin(['Sports', 'Environment']) & (data['event_name'] == 'Fund Project')]
